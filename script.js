@@ -102,6 +102,7 @@ class App {
 
     /**WHENEVER USER CLICKS ON MAP I WANT TO SHOW THE FORM */
     this.#map.on('click', this._showForm.bind(this));
+    this.#workOut.forEach(item => this._renderWorkout(item));
     this.#workOut.forEach(item => this._renderWorkOutMarker(item));
   }
 
@@ -120,7 +121,7 @@ class App {
       inputCadence.value =
       inputDuration.value =
       inputElevation.value =
-        ' ';
+        '';
   }
   _toggleElevationField() {
     /**WHENEVER USER SELECTS SOME OTHER OPTION I WANT TO CHANGE CADENCE AND ITS INPUT FIELD */
@@ -268,7 +269,6 @@ class App {
 
     if (!data) return;
     this.#workOut = data;
-    this.#workOut.forEach(item => this._renderWorkout(item));
   }
   reset() {
     localStorage.removeItem('workouts');
